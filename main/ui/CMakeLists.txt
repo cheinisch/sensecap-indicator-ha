@@ -1,6 +1,4 @@
 SET(SOURCES screens/ui_screen_ha_mix.c
-    screens/ui_screen_ha_data.c
-    screens/ui_screen_ha_ctrl.c
     screens/ui_screen_setting.c
     screens/ui_screen_wifi.c
     screens/ui_screen_display.c
@@ -13,11 +11,7 @@ SET(SOURCES screens/ui_screen_ha_mix.c
     images/ui_img_ic_hum_png.c
     images/ui_img_ic_switch2_on_png.c
     images/ui_img_ic_switch2_off_png.c
-    images/ui_img_ic_switch1_on_png.c
-    images/ui_img_ic_switch1_off_png.c
     images/ui_img_wifi_disconet_png.c
-    images/ui_img_ic_tvoc_png.c
-    images/ui_img_ic_co2_png.c
     images/ui_img_setting_png.c
     images/ui_img_wifi_setting_png.c
     images/ui_img_display_png.c
@@ -25,15 +19,6 @@ SET(SOURCES screens/ui_screen_ha_mix.c
     images/ui_img_lock_png.c
     images/ui_img_high_light_png.c
     images/ui_img_low_light_png.c
-    images/ui_img_co2_png.c
-    images/ui_img_humidity_1_png.c
-    images/ui_img_humidity_2_png.c
-    images/ui_img_location2_png.c
-    images/ui_img_temp_1_png.c
-    images/ui_img_temp_2_png.c
-    images/ui_img_wifi_1_png.c
-    images/ui_img_wifi_2_png.c
-    images/ui_img_wifi_3_png.c
     fonts/ui_font_font0.c
     fonts/ui_font_font2.c
     fonts/ui_font_font3.c

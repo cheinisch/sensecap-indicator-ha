@@ -4,9 +4,9 @@
 
 static const char* TAG = "wifi-view";
 
-// LV_IMG_DECLARE(ui_img_wifi_1_png);
-// LV_IMG_DECLARE(ui_img_wifi_2_png);
-// LV_IMG_DECLARE(ui_img_wifi_3_png);
+// LV_IMG_DECLARE(ui_img_wifi_disconet_png);
+// LV_IMG_DECLARE(ui_img_wifi_disconet_png);
+// LV_IMG_DECLARE(ui_img_wifi_setting_png);
 // LV_IMG_DECLARE(ui_img_lock_png);
 
 static void wifi_list_init(void);
@@ -419,13 +419,13 @@ static void create_wifi_item(lv_obj_t* parent, const char* p_ssid, bool have_pas
 	switch(wifi_rssi_level_get(rssi))
 	{
 		case 1:
-			lv_img_set_src(wifi_rssi_icon, &ui_img_wifi_1_png);
+			lv_img_set_src(wifi_rssi_icon, &ui_img_wifi_disconet_png);
 			break;
 		case 2:
-			lv_img_set_src(wifi_rssi_icon, &ui_img_wifi_2_png);
+			lv_img_set_src(wifi_rssi_icon, &ui_img_wifi_disconet_png);
 			break;
 		case 3:
-			lv_img_set_src(wifi_rssi_icon, &ui_img_wifi_3_png);
+			lv_img_set_src(wifi_rssi_icon, &ui_img_wifi_setting_png);
 			break;
 		default:
 			break;
@@ -493,13 +493,13 @@ static void __view_event_handler(void* handler_args, esp_event_base_t base, int3
 				switch(wifi_rssi_level_get(p_st->rssi))
 				{
 					case 1:
-						p_src = &ui_img_wifi_1_png;
+						p_src = &ui_img_wifi_disconet_png;
 						break;
 					case 2:
-						p_src = &ui_img_wifi_2_png;
+						p_src = &ui_img_wifi_disconet_png;
 						break;
 					case 3:
-						p_src = &ui_img_wifi_3_png;
+						p_src = &ui_img_wifi_setting_png;
 						break;
 					default:
 						break;
@@ -512,8 +512,8 @@ static void __view_event_handler(void* handler_args, esp_event_base_t base, int3
 			/*update wifi signal status*/
 			lv_img_set_src(ui_wifi_st_0, (void*)p_src);
 			lv_img_set_src(ui_wifi_st_1, (void*)p_src);
-			lv_img_set_src(ui_wifi_st_2, (void*)p_src);
-			lv_img_set_src(ui_wifi_st_3, (void*)p_src);
+			lv_img_set_src(ui_wifi_st_1, (void*)p_src);
+			lv_img_set_src(ui_wifi_st_1, (void*)p_src);
 			lv_img_set_src(ui_wifi_st_4, (void*)p_src);
 			lv_img_set_src(ui_wifi_st_01, (void*)p_src); /* screen broker */
 			break;

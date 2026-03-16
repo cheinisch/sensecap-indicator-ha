@@ -18,7 +18,7 @@ extern "C" {
 
 
 // #define CONFIG_BROKER_URL                        "mqtt://homeassistant.local" /* domain */
-#define CONFIG_BROKER_URL                        "mqtt://broker.emqx.io" /* for receive testing */
+#define CONFIG_BROKER_URL                        "mqtt://10.0.5.8" /* for receive testing */
 // #define CONFIG_BROKER_URL                        "mqtt://192.168.12.253" /* IPV4 */
 #define CONFIG_MQTT_CLIENT_ID                    "indicator-id"
 #define CONFIG_MQTT_USERNAME                     "indicator-usr"

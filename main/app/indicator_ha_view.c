@@ -103,11 +103,11 @@ static void update_switch_ui(int index, int value) {
         case 0: target = ui_switch1; break;
         case 1: target = ui_switch2; break;
         case 2: target = ui_switch3; break;
-        case 3: target = ui_switch4; break;
-        case 4: target = ui_switch5_arc1; break;
-        case 5: target = ui_switch6; break;
-        case 6: target = ui_switch7; break;
-        case 7: target = ui_switch8_slider1; break;
+        //case 3: target = ui_switch4; break;
+        //case 4: target = ui_switch5_arc1; break;
+        //case 5: target = ui_switch6; break;
+        //case 6: target = ui_switch7; break;
+        //case 7: target = ui_switch8_slider1; break;
         default: ESP_LOGW(TAG, "Invalid switch index: %d", index); return;
     }
 
@@ -137,7 +137,7 @@ static void update_switch_ui(int index, int value) {
 		{
 			char buf[_UI_TEMPORARY_STRING_BUFFER_SIZE];
 			lv_snprintf(buf, sizeof(buf), "%d °C", value);
-			lv_label_set_text(ui_switch5_arc_data1, buf);
+			//lv_label_set_text(ui_switch5_arc_data1, buf);
 			lv_arc_set_value(target, value);
 			break;
 		}

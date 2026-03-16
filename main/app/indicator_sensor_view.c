@@ -85,6 +85,35 @@ static void format_sensor_data(char* buf, enum sensor_data_type sensor_type, con
 	snprintf(buf, BUF_SIZE, format_style, data); // wrtie to buf
 }
 
+void view_event_update_ha_sensorData(void* handler_args, esp_event_base_t base, int32_t id,
+                                      void* event_data) {
+    if(id != VIEW_EVENT_HA_SENSOR) return;
+
+    struct view_data_ha_sensor_data* p_data = (struct view_data_ha_sensor_data*)event_data;
+    if(p_data == NULL) return;
+
+    // HA sensor index 0 = temp (sensor1), index 1 = humidity (sensor2)
+    // Map to sensorPanel index
+    int panel_index;
+    switch(p_data->index) {
+        case 0: panel_index = SHT41_SENSOR_TEMP;     break; // sensor1 = temp
+        case 1: panel_index = SHT41_SENSOR_HUMIDITY; break; // sensor2 = humidity
+        case 2: panel_index = SGP40_SENSOR_TVOC;     break; // sensor3 = tvoc
+        case 3: panel_index = SCD41_SENSOR_CO2;      break; // sensor4 = co2
+        default: return;
+    }
+
+    if(sensorPanel[panel_index].ui_lbl == NULL) return;
+
+    lv_port_sem_take();
+    for(int i = 0; i < sensorPanel[panel_index].ui_lbl_size; i++) {
+        if(sensorPanel[panel_index].ui_lbl[i] != NULL) {
+            lv_label_set_text(sensorPanel[panel_index].ui_lbl[i], p_data->value);
+        }
+    }
+    lv_port_sem_give();
+}
+
 void view_sensor_init() {
 	// if(ui_screen_ha_mix == NULL || ui_screen_ha_data)
 	// {
@@ -98,23 +127,31 @@ void view_sensor_init() {
 	// sensorPanel[SHT41_SENSOR_HUMIDITY].ui_lbl = ui_LblDataHumi; // outer
 	sensorPanel[SCD41_SENSOR_CO2].ui_lbl_size = 1;
 	sensorPanel[SCD41_SENSOR_CO2].ui_lbl = (lv_obj_t**)malloc(sizeof(lv_obj_t*) * 2);
-	sensorPanel[SCD41_SENSOR_CO2].ui_lbl[0] = ui_sensor_data_co2_2;
+	sensorPanel[SCD41_SENSOR_CO2].ui_lbl[0] = NULL;
 
 	sensorPanel[SGP40_SENSOR_TVOC].ui_lbl_size = 1;
 	sensorPanel[SGP40_SENSOR_TVOC].ui_lbl = (lv_obj_t*)malloc(sizeof(lv_obj_t*) * 1);
-	sensorPanel[SGP40_SENSOR_TVOC].ui_lbl[0] = ui_sensor_data_tvoc_2;
+	sensorPanel[SGP40_SENSOR_TVOC].ui_lbl[0] = NULL;
 
 	sensorPanel[SHT41_SENSOR_TEMP].ui_lbl_size = 2;
 	sensorPanel[SHT41_SENSOR_TEMP].ui_lbl = (lv_obj_t*)malloc(sizeof(lv_obj_t*) * 1);
 	sensorPanel[SHT41_SENSOR_TEMP].ui_lbl[0] = ui_sensor_data_temp_1;
-	sensorPanel[SHT41_SENSOR_TEMP].ui_lbl[1] = ui_sensor_data_temp_2;
+	sensorPanel[SHT41_SENSOR_TEMP].ui_lbl[1] = NULL;
 
 	sensorPanel[SHT41_SENSOR_HUMIDITY].ui_lbl_size = 2;
 	sensorPanel[SHT41_SENSOR_HUMIDITY].ui_lbl = (lv_obj_t*)malloc(sizeof(lv_obj_t*) * 1);
 	sensorPanel[SHT41_SENSOR_HUMIDITY].ui_lbl[0] = ui_sensor_data_humi_1;
-	sensorPanel[SHT41_SENSOR_HUMIDITY].ui_lbl[1] = ui_sensor_data_humi_2;
+	sensorPanel[SHT41_SENSOR_HUMIDITY].ui_lbl[1] = NULL;
 
-	ESP_ERROR_CHECK(esp_event_handler_instance_register_with(
+	/*ESP_ERROR_CHECK(esp_event_handler_instance_register_with(
 		view_event_handle, VIEW_EVENT_BASE, VIEW_EVENT_SENSOR_DATA,
 		view_event_update_present_sensorData, NULL, NULL));
+
+	ESP_ERROR_CHECK(esp_event_handler_instance_register_with(
+    view_event_handle, VIEW_EVENT_BASE, VIEW_EVENT_HA_SENSOR,
+    view_event_update_ha_sensorData, NULL, NULL));*/
+	ESP_ERROR_CHECK(esp_event_handler_instance_register_with(
+    view_event_handle, VIEW_EVENT_BASE, VIEW_EVENT_HA_SENSOR,
+    view_event_update_ha_sensorData, NULL, NULL));
 }
+

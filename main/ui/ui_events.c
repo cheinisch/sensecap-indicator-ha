@@ -26,9 +26,9 @@ void switch_event_cb(lv_event_t* e) {
     if (target == ui_switch1) switch_data.index = 0;
     else if (target == ui_switch2) switch_data.index = 1;
     else if (target == ui_switch3) switch_data.index = 2;
-    else if (target == ui_switch4) switch_data.index = 3;
-    else if (target == ui_switch6) switch_data.index = 5;
-    else if (target == ui_switch7) switch_data.index = 6;
+    //else if (target == ui_switch4) switch_data.index = 3;
+    //else if (target == ui_switch6) switch_data.index = 5;
+    //else if (target == ui_switch7) switch_data.index = 6;
     else {
         ESP_LOGW(TAG, "Unknown switch target");
         return;
@@ -50,7 +50,7 @@ void switch_arc_event_cb(lv_event_t* e) {
 
 	struct view_data_ha_switch_data switch_data = {0};
 
-	if(target == ui_switch5_arc1)
+	/*if(target == ui_switch5_arc1)
 	{
 		lv_arc_t* tr_arc = (lv_arc_t*)target;
 		switch_data.value = (int)tr_arc->value;
@@ -60,7 +60,7 @@ void switch_arc_event_cb(lv_event_t* e) {
 	{
 		switch_data.value = (int)lv_slider_get_value(target);
 		switch_data.index = 7;
-	}
+	}*/
 
 	ESP_LOGI(TAG, " switch%d: %d", switch_data.index + 1, switch_data.value);
 	esp_event_post_to(view_event_handle, VIEW_EVENT_BASE, VIEW_EVENT_HA_SWITCH_ST, &switch_data, sizeof(switch_data),
