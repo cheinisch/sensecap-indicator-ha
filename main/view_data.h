@@ -150,6 +150,12 @@ struct view_data_ha_switch_data
 	int value;
 };
 
+// NEU: UI Control Command
+struct view_data_ui_ctrl
+{
+	char cmd[32];
+};
+
 enum
 {
 	VIEW_EVENT_SCREEN_START = 0, // uint8_t, enum start_screen, which screen when start
@@ -194,6 +200,7 @@ enum
 	VIEW_EVENT_HA_SENSOR, // struct view_data_ha_sensor_data
 	VIEW_EVENT_HA_SWITCH_ST, // struct view_data_ha_switch_data
 	VIEW_EVENT_HA_SWITCH_SET, // struct view_data_ha_switch_data
+	VIEW_EVENT_UI_CTRL, // struct view_data_ui_ctrl  <-- NEU
 
 	VIEW_EVENT_ALL,
 };

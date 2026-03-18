@@ -9,9 +9,13 @@ SET(SOURCES screens/ui_screen_ha_mix.c
     ui_events.c
     images/ui_img_ic_temp_png.c
     images/ui_img_ic_hum_png.c
+    images/ui_img_alarm_on_2_png.c
+    images/ui_img_alarm_off_png.c
+    images/ui_img_wifi_disconet_png.c
+    images/ui_img_door_open_2_png.c
+    images/ui_img_door_closed_png.c
     images/ui_img_ic_switch2_on_png.c
     images/ui_img_ic_switch2_off_png.c
-    images/ui_img_wifi_disconet_png.c
     images/ui_img_setting_png.c
     images/ui_img_wifi_setting_png.c
     images/ui_img_display_png.c

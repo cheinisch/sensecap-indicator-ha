@@ -34,9 +34,13 @@ extern lv_obj_t * ui____initial_actions0;
 // IMAGES AND IMAGE SETS
 LV_IMG_DECLARE(ui_img_ic_temp_png);    // assets/ic_temp.png
 LV_IMG_DECLARE(ui_img_ic_hum_png);    // assets/ic_hum.png
+LV_IMG_DECLARE(ui_img_alarm_on_2_png);    // assets/alarm_on_2.png
+LV_IMG_DECLARE(ui_img_alarm_off_png);    // assets/alarm_off.png
+LV_IMG_DECLARE(ui_img_wifi_disconet_png);    // assets/wifi_disconet.png
+LV_IMG_DECLARE(ui_img_door_open_2_png);    // assets/door_open_2.png
+LV_IMG_DECLARE(ui_img_door_closed_png);    // assets/door_closed.png
 LV_IMG_DECLARE(ui_img_ic_switch2_on_png);    // assets/ic_switch2_on.png
 LV_IMG_DECLARE(ui_img_ic_switch2_off_png);    // assets/ic_switch2_off.png
-LV_IMG_DECLARE(ui_img_wifi_disconet_png);    // assets/wifi_disconet.png
 LV_IMG_DECLARE(ui_img_setting_png);    // assets/setting.png
 LV_IMG_DECLARE(ui_img_wifi_setting_png);    // assets/wifi_setting.png
 LV_IMG_DECLARE(ui_img_display_png);    // assets/display.png

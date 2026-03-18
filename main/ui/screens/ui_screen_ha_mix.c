@@ -35,6 +35,10 @@ void ui_event_screen_ha_mix(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
 
+    if(event_code == LV_EVENT_GESTURE &&  lv_indev_get_gesture_dir(lv_indev_get_act()) == LV_DIR_LEFT) {
+        lv_indev_wait_release(lv_indev_get_act());
+        _ui_screen_change(&ui_screen_setting, LV_SCR_LOAD_ANIM_MOVE_LEFT, 200, 0, &ui_screen_setting_screen_init);
+    }
     if(event_code == LV_EVENT_GESTURE &&  lv_indev_get_gesture_dir(lv_indev_get_act()) == LV_DIR_RIGHT) {
         lv_indev_wait_release(lv_indev_get_act());
         _ui_screen_change(&ui_screen_setting, LV_SCR_LOAD_ANIM_MOVE_RIGHT, 200, 0, &ui_screen_setting_screen_init);
@@ -47,11 +51,11 @@ void ui_event_switch1(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
 
     if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_image_set_property(ui_switch1_logo1, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_ic_switch2_on_png);
+        _ui_image_set_property(ui_switch1_logo1, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_alarm_on_2_png);
         switch_event_cb(e);
     }
     if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_image_set_property(ui_switch1_logo1, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_ic_switch2_off_png);
+        _ui_image_set_property(ui_switch1_logo1, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_alarm_off_png);
         switch_event_cb(e);
     }
 }
@@ -71,11 +75,11 @@ void ui_event_switch2(lv_event_t * e)
     lv_obj_t * target = lv_event_get_target(e);
 
     if(event_code == LV_EVENT_VALUE_CHANGED &&  lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_image_set_property(ui_switch1_logo2, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_ic_switch2_on_png);
+        _ui_image_set_property(ui_switch1_logo2, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_door_open_2_png);
         switch_event_cb(e);
     }
     if(event_code == LV_EVENT_VALUE_CHANGED &&  !lv_obj_has_state(target, LV_STATE_CHECKED)) {
-        _ui_image_set_property(ui_switch1_logo2, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_ic_switch2_off_png);
+        _ui_image_set_property(ui_switch1_logo2, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_door_closed_png);
         switch_event_cb(e);
     }
 }
@@ -222,13 +226,14 @@ void ui_screen_ha_mix_screen_init(void)
     lv_obj_set_style_shadow_opa(ui_switch1, 0, LV_PART_MAIN | LV_STATE_CHECKED);
 
     ui_switch1_logo1 = lv_img_create(ui_switch1);
-    lv_img_set_src(ui_switch1_logo1, &ui_img_ic_switch2_off_png);
+    lv_img_set_src(ui_switch1_logo1, &ui_img_alarm_off_png);
     lv_obj_set_width(ui_switch1_logo1, LV_SIZE_CONTENT);   /// 45
     lv_obj_set_height(ui_switch1_logo1, LV_SIZE_CONTENT);    /// 45
     lv_obj_set_x(ui_switch1_logo1, 39);
     lv_obj_set_y(ui_switch1_logo1, 10);
     lv_obj_add_flag(ui_switch1_logo1, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
     lv_obj_clear_flag(ui_switch1_logo1, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_img_src(ui_switch1_logo1, &ui_img_alarm_on_2_png, LV_PART_MAIN | LV_STATE_CHECKED);
 
     ui_switch1_label1 = lv_label_create(ui_switch1);
     lv_obj_set_width(ui_switch1_label1, LV_SIZE_CONTENT);   /// 1
@@ -305,13 +310,14 @@ void ui_screen_ha_mix_screen_init(void)
     lv_obj_set_style_shadow_opa(ui_switch2, 0, LV_PART_MAIN | LV_STATE_CHECKED);
 
     ui_switch1_logo2 = lv_img_create(ui_switch2);
-    lv_img_set_src(ui_switch1_logo2, &ui_img_ic_switch2_off_png);
+    lv_img_set_src(ui_switch1_logo2, &ui_img_door_closed_png);
     lv_obj_set_width(ui_switch1_logo2, LV_SIZE_CONTENT);   /// 45
     lv_obj_set_height(ui_switch1_logo2, LV_SIZE_CONTENT);    /// 45
     lv_obj_set_x(ui_switch1_logo2, 39);
     lv_obj_set_y(ui_switch1_logo2, 10);
     lv_obj_add_flag(ui_switch1_logo2, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
     lv_obj_clear_flag(ui_switch1_logo2, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
+    lv_obj_set_style_bg_img_src(ui_switch1_logo2, &ui_img_door_closed_png, LV_PART_MAIN | LV_STATE_CHECKED);
 
     ui_switch1_label2 = lv_label_create(ui_switch2);
     lv_obj_set_width(ui_switch1_label2, LV_SIZE_CONTENT);   /// 1
@@ -319,7 +325,7 @@ void ui_screen_ha_mix_screen_init(void)
     lv_obj_set_x(ui_switch1_label2, 0);
     lv_obj_set_y(ui_switch1_label2, -5);
     lv_obj_set_align(ui_switch1_label2, LV_ALIGN_BOTTOM_MID);
-    lv_label_set_text(ui_switch1_label2, "Alle Lichter aus");
+    lv_label_set_text(ui_switch1_label2, "Offene Fenster");
     lv_obj_set_style_text_color(ui_switch1_label2, lv_color_hex(0x9E9E9E), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_switch1_label2, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_switch1_label2, &lv_font_montserrat_18, LV_PART_MAIN | LV_STATE_DEFAULT);

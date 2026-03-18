@@ -2083,7 +2083,7 @@
                   {
                     "nid": 1266924434,
                     "strtype": "IMAGE/Asset",
-                    "strval": "assets/ic_switch2_off.png",
+                    "strval": "assets/alarm_off.png",
                     "InheritedType": 5
                   },
                   {
@@ -2108,7 +2108,22 @@
                   },
                   {
                     "part": "lv.PART.MAIN",
-                    "childs": [],
+                    "childs": [
+                      {
+                        "nid": 20000,
+                        "strtype": "_style/StyleState",
+                        "strval": "CHECKED",
+                        "childs": [
+                          {
+                            "nid": 20610,
+                            "strtype": "_style/Bg_Image",
+                            "strval": "assets/alarm_on_2.png",
+                            "InheritedType": 5
+                          }
+                        ],
+                        "InheritedType": 1
+                      }
+                    ],
                     "nid": 1924646392,
                     "strtype": "IMAGE/Style_main",
                     "strval": "lv.PART.MAIN, Rectangle, Image, Transform",
@@ -2547,7 +2562,6 @@
                   },
                   {
                     "nid": -609898034,
-                    "flags": 1048576,
                     "strtype": "_event/action",
                     "strval": "IMAGE_PROPERTY",
                     "childs": [
@@ -2584,7 +2598,7 @@
                       {
                         "nid": 1937208651,
                         "strtype": "IMAGE_PROPERTY/Value",
-                        "strval": "assets/ic_switch2_on.png",
+                        "strval": "assets/alarm_on_2.png",
                         "InheritedType": 5
                       },
                       {
@@ -2662,7 +2676,6 @@
                   },
                   {
                     "nid": -1358067465,
-                    "flags": 1048576,
                     "strtype": "_event/action",
                     "strval": "IMAGE_PROPERTY",
                     "childs": [
@@ -2699,7 +2712,7 @@
                       {
                         "nid": -1181607371,
                         "strtype": "IMAGE_PROPERTY/Value",
-                        "strval": "assets/ic_switch2_off.png",
+                        "strval": "assets/alarm_off.png",
                         "InheritedType": 5
                       },
                       {
@@ -3999,13 +4012,14 @@
                   },
                   {
                     "nid": 361038858,
+                    "flags": 1048576,
                     "strtype": "IMAGE/Image",
                     "InheritedType": 1
                   },
                   {
                     "nid": 1266924434,
                     "strtype": "IMAGE/Asset",
-                    "strval": "assets/ic_switch2_off.png",
+                    "strval": "assets/door_open_2.png",
                     "InheritedType": 5
                   },
                   {
@@ -4030,7 +4044,22 @@
                   },
                   {
                     "part": "lv.PART.MAIN",
-                    "childs": [],
+                    "childs": [
+                      {
+                        "nid": 20000,
+                        "strtype": "_style/StyleState",
+                        "strval": "CHECKED",
+                        "childs": [
+                          {
+                            "nid": 20610,
+                            "strtype": "_style/Bg_Image",
+                            "strval": "assets/door_closed.png",
+                            "InheritedType": 5
+                          }
+                        ],
+                        "InheritedType": 1
+                      }
+                    ],
                     "nid": 1924646392,
                     "strtype": "IMAGE/Style_main",
                     "strval": "lv.PART.MAIN, Rectangle, Image, Transform",
@@ -4469,7 +4498,6 @@
                   },
                   {
                     "nid": -609898034,
-                    "flags": 1048576,
                     "strtype": "_event/action",
                     "strval": "IMAGE_PROPERTY",
                     "childs": [
@@ -4506,7 +4534,7 @@
                       {
                         "nid": 1937208651,
                         "strtype": "IMAGE_PROPERTY/Value",
-                        "strval": "assets/ic_switch2_on.png",
+                        "strval": "assets/door_closed.png",
                         "InheritedType": 5
                       },
                       {
@@ -4584,7 +4612,6 @@
                   },
                   {
                     "nid": -1358067465,
-                    "flags": 1048576,
                     "strtype": "_event/action",
                     "strval": "IMAGE_PROPERTY",
                     "childs": [
@@ -4621,7 +4648,7 @@
                       {
                         "nid": -1181607371,
                         "strtype": "IMAGE_PROPERTY/Value",
-                        "strval": "assets/ic_switch2_off.png",
+                        "strval": "assets/door_open_2.png",
                         "InheritedType": 5
                       },
                       {
@@ -5038,9 +5065,9 @@
                             "nid": 190218199,
                             "strtype": "_style/Text_Color",
                             "intarray": [
-                              158,
-                              158,
-                              158,
+                              235,
+                              235,
+                              235,
                               255
                             ],
                             "InheritedType": 7
@@ -5134,7 +5161,7 @@
               {
                 "nid": 100,
                 "strtype": "BUTTON/Hidden",
-                "strval": "True",
+                "strval": "False",
                 "InheritedType": 2
               },
               {
@@ -5220,9 +5247,9 @@
                         "nid": -318864028,
                         "strtype": "_style/Bg_Color",
                         "intarray": [
-                          41,
-                          40,
-                          41,
+                          150,
+                          27,
+                          7,
                           255
                         ],
                         "InheritedType": 7
@@ -5553,7 +5580,6 @@
           },
           {
             "nid": 225,
-            "flags": 1048576,
             "strtype": "OBJECT/Scrolling",
             "InheritedType": 1
           },
@@ -5670,7 +5696,7 @@
                   {
                     "nid": 232501695,
                     "strtype": "CHANGE SCREEN/Screen_to",
-                    "strval": "-",
+                    "strval": "GUID95899924-808464S565223205",
                     "InheritedType": 9
                   },
                   {
@@ -9818,7 +9844,7 @@
           }
         ],
         "isPage": true,
-        "editor_posx": 2130,
+        "editor_posx": 1170,
         "editor_posy": -600,
         "properties": [
           {
@@ -9858,7 +9884,6 @@
           },
           {
             "nid": 225,
-            "flags": 1048576,
             "strtype": "OBJECT/Scrolling",
             "InheritedType": 1
           },
@@ -9948,55 +9973,6 @@
                 "strtype": "_event/condition_P",
                 "strval": "",
                 "InheritedType": 10
-              },
-              {
-                "nid": -2001245492,
-                "strtype": "_event/action",
-                "strval": "CHANGE SCREEN",
-                "childs": [
-                  {
-                    "nid": 1298796936,
-                    "strtype": "CHANGE SCREEN/Name",
-                    "strval": "CHANGE SCREEN",
-                    "InheritedType": 10
-                  },
-                  {
-                    "nid": -41187610,
-                    "strtype": "CHANGE SCREEN/Call",
-                    "strval": "ChangeScreen( <{Screen_to}>, lv.SCR_LOAD_ANIM.<{Fade_mode}>, <{Speed}>, <{Delay}>)",
-                    "InheritedType": 10
-                  },
-                  {
-                    "nid": -785336165,
-                    "strtype": "CHANGE SCREEN/CallC",
-                    "strval": "_ui_screen_change( &<{Screen_to}>, LV_SCR_LOAD_ANIM_<{Fade_mode}>, <{Speed}>, <{Delay}>, &<{Screen_to}>_screen_init);",
-                    "InheritedType": 10
-                  },
-                  {
-                    "nid": -125140513,
-                    "strtype": "CHANGE SCREEN/Screen_to",
-                    "strval": "GUID30038149-345841S535083205",
-                    "InheritedType": 9
-                  },
-                  {
-                    "nid": 747946359,
-                    "strtype": "CHANGE SCREEN/Fade_mode",
-                    "strval": "MOVE_LEFT",
-                    "InheritedType": 3
-                  },
-                  {
-                    "nid": 67406919,
-                    "strtype": "CHANGE SCREEN/Speed",
-                    "integer": 200,
-                    "InheritedType": 6
-                  },
-                  {
-                    "nid": 1715530394,
-                    "strtype": "CHANGE SCREEN/Delay",
-                    "InheritedType": 6
-                  }
-                ],
-                "InheritedType": 10
               }
             ],
             "InheritedType": 4
@@ -10051,7 +10027,7 @@
                   {
                     "nid": -1901672291,
                     "strtype": "CHANGE SCREEN/Screen_to",
-                    "strval": "-",
+                    "strval": "GUID30038149-345841S535083205",
                     "InheritedType": 9
                   },
                   {
@@ -11519,7 +11495,7 @@
           }
         ],
         "isPage": true,
-        "editor_posx": 2640,
+        "editor_posx": 1710,
         "editor_posy": -600,
         "properties": [
           {
@@ -15508,8 +15484,8 @@
           }
         ],
         "isPage": true,
-        "editor_posx": 1230,
-        "editor_posy": -1380,
+        "editor_posx": 1200,
+        "editor_posy": -1350,
         "properties": [
           {
             "nid": -285071850,
@@ -18434,8 +18410,8 @@
           }
         ],
         "isPage": true,
-        "editor_posx": 1770,
-        "editor_posy": -1380,
+        "editor_posx": 1740,
+        "editor_posy": -1350,
         "properties": [
           {
             "nid": 1685175849,
@@ -18591,7 +18567,7 @@
     "custom_variable_prefix": "uic",
     "separate_screen_save": false,
     "hierarchy_state_save": false,
-    "backup_cnt": 201,
+    "backup_cnt": 211,
     "autosave_cnt": 0,
     "group_color_cnt": 0,
     "imagebytearrayprefix": "",

@@ -35,6 +35,9 @@ extern "C" {
 #define CONFIG_TOPIC_SWITCH_SET                  "indicator/switch/set"
 #define CONFIG_TOPIC_SWITCH_QOS                  1
 
+#define CONFIG_TOPIC_UI_CTRL     "indicator/ui/ctrl"
+#define CONFIG_TOPIC_UI_CTRL_QOS 0
+
 // buildin sensor
 #define CONFIG_SENSOR_BUILDIN_CO2_VALUE_KEY      "co2"
 #define CONFIG_SENSOR_BUILDIN_TVOC_VALUE_KEY     "tvoc"
